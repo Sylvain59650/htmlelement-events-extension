@@ -1,0 +1,24 @@
+{
+  "name": "htmlelement-events-extension",
+  "version": "0.9.5",
+  "description": "easy add/remove event on html elements",
+  "main": "distrib/htmlelement-events-extension.min.js",
+  "dependencies": { },
+  "devDependencies": {},
+  "scripts": {
+    "test": "exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sylvain59650/htmlelement-events-extension.git"
+  },
+  "keywords": [
+    "HTMLElement","events","addEventListener","on","off"
+  ],
+  "author": "Sylvain LONGEPEE",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Sylvain59650/htmlelement-events-extension/issues"
+  },
+  "homepage": "https://github.com/Sylvain59650/htmlelement-events-extension#readme"
+}

@@ -17,7 +17,7 @@
 
  <div class="Note" style="color:orange;font-style:italic">
  
-  The lastest version of this document is available on [Github > htmlelement-events-extension](https://github.com/Sylvain59650/htmlelement-events-extension/tree/master/docs/README.md)
+  The lastest version of this document is available on [Github > htmlelement-events-extension](https://github.com/Sylvain59650/htmlelement-events-extension/tree/master/README.md)
 </div>
 
 usage

@@ -20,18 +20,102 @@
   The lastest version of this document is available on [Github > htmlelement-events-extension](https://github.com/Sylvain59650/htmlelement-events-extension/tree/master/README.md)
 </div>
 
-usage
 
-    <html>
+## Installation
+
+    npm install htmlelement-events-extension --save
+
+or
+
+    yarn add htmlelement-events-extension --save
+
+
+## prerequisites
+
+### for browser
+
+ 
+    <script src="node_modules/htmlelement-events-extension/distrib/htmlelement-events-extension.min.js"></script>
+
+
+
+# Availables Operations
+
+## on HTMLElement, window & document
+    - on ~ addEventListener
+    - off ~ removeEventListener
+
+# HTMLElement.on
+
+    HTMLElement.on(eventNames,fn,option)
+
+    string eventNames:  events names know like keydown, mousedown, click ...
+                        you can put several events name separed by space
+                        don't prefix by word "on"
+
+    function fn: callback to call
+
+    object option : object with
+            {
+                once: true,
+                passive: true,
+                capture: true
+             }
+
+
+             once => true, the event can only be called once, polyfill for IE 
+
+# HTMLElement.off
+
+    HTMLElement.on(eventNames,fn)
+
+    string eventNames:  events names know like keydown, mousedown, click ...
+                        you can put several events name separed by space
+                        don't prefix by word "on"
+
+    function fn: callback to uninstall
+
+# usage
 
     <body>
-    <input id="t1" type="text" />
+    <style>
+        input {
+        width: 350px
+        }
+    </style>
+    <input id="t1" type="text" placeholder="register keydown multiple times" />
+    <input id="t3" type="text" placeholder="register keydown only once" />
+    <input id="t4" type="text" placeholder="register keydown keyup" />
+    <input id="t5" type="text" placeholder="register keydown keyup puis unregister only keydown" />
+    <button type="button" id="btn">Clear</button>
+
+    <div id="debug"></div>
     <script src="../distrib/htmlElement-events.min.js"></script>
     <script>
-        document.querySelector("#t1").on("keydown", function() {
-        console.log("pass"), false
+        function trace() {
+        console.log(new Date());
+        document.querySelector("#debug").innerHTML += new Date() + "<br/>";
+        }
+
+        document.querySelector("#btn").on("click", function() {
+        document.querySelector("#debug").innerHTML = "";
         });
+
+        document.querySelector("#t1").on("keydown", trace, {
+        once: false
+        });
+
+
+        document.querySelector("#t3").on("keydown", trace, {
+        once: true
+        });
+
+        document.querySelector("#t4").on("keydown keyup", trace);
+
+        document.querySelector("#t5").on("keydown keyup", trace);
+
+        document.querySelector("#t5").off("keydown", trace);
     </script>
     </body>
 
-    </html>
+**Note: tests passing with Chrome, Firefox, IE9**

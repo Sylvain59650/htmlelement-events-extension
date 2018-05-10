@@ -1,0 +1,16 @@
+<html>
+
+<body>
+  <script src="../distrib/htmlElement-events.min.js"></script>
+  <script>
+    function trace() {
+      console.log(new Date());
+    }
+    //window.timerOne(trace, 5000);
+
+    window.on("load", trace);
+    document.on("DOMContentLoaded", trace);
+  </script>
+</body>
+
+</html>

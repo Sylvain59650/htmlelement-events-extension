@@ -17,7 +17,7 @@ gulp.task("htmlElement-events.min.js", () => {
     .pipe(concat("htmlElement-events.min.js"))
     .pipe(babel({
       presets: ["es2015"],
-      compact: true
+      compact: false
     }))
     //.pipe(uglify())
     //.on('error', function(err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })

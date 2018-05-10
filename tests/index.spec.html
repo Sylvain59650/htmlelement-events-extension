@@ -1,12 +1,43 @@
 <html>
 
 <body>
-  <input id="t1" type="text" />
+  <style>
+    input {
+      width: 350px
+    }
+  </style>
+  <input id="t1" type="text" placeholder="register keydown multiple times" />
+  <input id="t3" type="text" placeholder="register keydown only once" />
+  <input id="t4" type="text" placeholder="register keydown keyup" />
+  <input id="t5" type="text" placeholder="register keydown keyup puis unregister only keydown" />
+  <button type="button" id="btn">Clear</button>
+
+  <div id="debug"></div>
   <script src="../distrib/htmlElement-events.min.js"></script>
   <script>
-    document.querySelector("#t1").on("keydown", function() {
-      console.log("pass"), false
+    function trace() {
+      console.log(new Date());
+      document.querySelector("#debug").innerHTML += new Date() + "<br/>";
+    }
+
+    document.querySelector("#btn").on("click", function() {
+      document.querySelector("#debug").innerHTML = "";
     });
+
+    document.querySelector("#t1").on("keydown", trace, {
+      once: false
+    });
+
+
+    document.querySelector("#t3").on("keydown", trace, {
+      once: true
+    });
+
+    document.querySelector("#t4").on("keydown keyup", trace);
+
+    document.querySelector("#t5").on("keydown keyup", trace);
+
+    document.querySelector("#t5").off("keydown", trace);
   </script>
 </body>
 

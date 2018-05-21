@@ -44,6 +44,7 @@ or
 ## on HTMLElement, window & document
     - on ~ addEventListener
     - off ~ removeEventListener
+    - NoContextMenu() disabled contextMenu on HTMLElement
 
 # HTMLElement.on
 
@@ -74,6 +75,36 @@ or
                         don't prefix by word "on"
 
     function fn: callback to uninstall
+                if fn is omit, uninstall all callbacks according to eventNames
+
+# NodeList.on, NodeList.off
+   The API can set or unset multiples events on multiples HTMLElements with one instruction
+
+example
+
+        document.querySelectorAll("input").off("keydown keyup",trace);
+
+
+# document
+    - fireEvent  : fire custom event with details,  this event can also be listened with method document.on
+
+example
+
+        function traceDetail(ev) {
+            console.log(ev.detail);
+        }
+        document.on("custom", traceDetail);
+
+        document.fireEvent("custom",{a:1,b:2});
+
+        => {a:1,b:2}
+
+# Specials EventNames
+  special event name can be used with <code>on</code> and <code>off</code> method
+
+    - longmousedown : call when the mouse stays pressed for a while
+    - longkeydown : call when one key stays pressed for a while
+    - nocontextmenu : active/deactivate context menu
 
 # usage
 
@@ -118,4 +149,4 @@ or
     </script>
     </body>
 
-**Note: tests passing with Chrome, Firefox, IE9**
+**Note: tests passing with Chrome, Firefox, IE11**

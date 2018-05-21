@@ -6,10 +6,19 @@
     function trace() {
       console.log(new Date());
     }
+
+    function tr(ev) {
+      console.log(ev.detail.a);
+    }
     //window.timerOne(trace, 5000);
 
     window.on("load", trace);
     document.on("DOMContentLoaded", trace);
+
+    document.on("yeah", tr, false);
+    document.fireEvent("yeah", {
+      a: 1
+    });
   </script>
 </body>
 

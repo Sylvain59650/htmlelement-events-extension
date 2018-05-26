@@ -105,6 +105,7 @@ example
     - longmousedown : call when the mouse stays pressed for a while
     - longkeydown : call when one key stays pressed for a while
     - nocontextmenu : active/deactivate context menu
+    - clickoutside : click outside a element
 
 # usage
 

@@ -1,4 +1,5 @@
-/* global getEventListeners registerLongMousedown registerLongKeydown disableContextMenu*/
+/* global getEventListeners registerLongMousedown registerLongKeydown registerClickOutside disableContextMenu*/
+const specialEvents = ["longmousedown", "longkeydown", "nocontextmenu", "clickoutside"];
 
 window.registerEvent = function(elem, evtName, fn, option) {
   if (evtName === "longmousedown") {
@@ -7,6 +8,8 @@ window.registerEvent = function(elem, evtName, fn, option) {
     registerLongKeydown(elem, fn);
   } else if (evtName === "nocontextmenu") {
     elem.oncontextmenu = disableContextMenu;
+  } else if (evtName === "clickoutside") {
+    registerClickOutside(elem, fn, option || false);
   } else {
     elem.addEventListener(evtName, fn, option || false);
   }
@@ -15,6 +18,8 @@ window.registerEvent = function(elem, evtName, fn, option) {
 window.unregisterEvent = function(elem, evtName, fn) {
   if (evtName === "nocontextmenu") {
     elem.oncontextmenu = null;
+  } else if (evtName === "clickoutside" && document.removeEventListener) {
+    document.removeEventListener("click", fn);
   } else {
     if (window.isDef(fn)) {
       elem.removeEventListener(evtName, fn, false);
@@ -36,17 +41,19 @@ HTMLElement.prototype.on = function(evtName, fn, option) {
   for (let i = 0; i < evts.length; i++) {
     let evt = evts[i];
     if (this.addEventListener) {
-      if (!!document.documentMode && option && option.once) {
-        var self = this;
-        fn.removed = false;
-        var oneCall = function() {
-          if (!fn.removed) {
-            fn();
-            fn.removed = true;
+      if (option && option.once) {
+        if (!!document.documentMode || specialEvents.indexOf(evtName) >= 0) {
+          var self = this;
+          fn.removed = false;
+          var oneCall = function() {
+            if (!fn.removed) {
+              fn(event);
+              fn.removed = true;
+            }
             self.off(evt, oneCall);
           }
+          cb = oneCall;
         }
-        cb = oneCall;
       }
       window.registerEvent(this, evt, cb, option || false);
 

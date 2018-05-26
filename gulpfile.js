@@ -17,8 +17,8 @@ gulp.task("htmlElement-events.min.js", () => {
     .pipe(concat("htmlElement-events.min.js"))
     .pipe(babel({
       presets: ["es2015"],
-      compact: true,
-      minified: true
+      compact: false,
+      minified: false
     }))
     //.pipe(uglify())
     //.on('error', function(err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
@@ -26,6 +26,18 @@ gulp.task("htmlElement-events.min.js", () => {
     .pipe(gulp.dest(chemins.distrib))
 });
 
+gulp.task("release", () => {
+  return gulp.src([
+      "src/**.js"
+    ])
+    .pipe(concat("htmlElement-events.min.js"))
+    .pipe(babel({
+      presets: ["es2015"],
+      compact: true,
+      minified: true
+    }))
+    .pipe(gulp.dest(chemins.distrib))
+});
 
 gulp.task("watch:htmlElement.min.js", function() {
   watch("./src/**.js", function() {

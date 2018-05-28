@@ -20,15 +20,11 @@ htev.registerEvent = function(elem, evtName, fn, option) {
 }
 
 htev.unregisterEvent = function(elem, evtName, fn) {
-  if (evtName === "nocontextmenu") {
-    elem.oncontextmenu = null;
-  } else if (evtName === "clickoutside" && document.removeEventListener) {
-    document.removeEventListener("click", fn);
-  } else {
+  function unregister(elem, evtName, fn) {
     if (window.isDef(fn)) {
       elem.removeEventListener(evtName, fn, false);
     } else {
-      var events = getEventListeners(elem);
+      var events = window.getEventListeners(elem);
       if (window.isDef(events) && window.isDef(events[evtName])) {
         for (let j = 0; j < events[evtName].length; j++) {
           let e = events[evtName][j];
@@ -36,6 +32,13 @@ htev.unregisterEvent = function(elem, evtName, fn) {
         }
       }
     }
+  }
+  if (evtName === "nocontextmenu") {
+    elem.oncontextmenu = null;
+  } else if (evtName === "clickoutside" && document.removeEventListener) {
+    htev.unregisterClickOutside(elem);
+  } else {
+    unregister(elem, evtName, fn);
   }
 }
 

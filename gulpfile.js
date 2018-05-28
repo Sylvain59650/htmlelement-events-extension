@@ -64,7 +64,7 @@ gulp.task("watch:htmlElement.min.js", function() {
 
 
 
-gulp.task("default", ["htmlElement-events.min.js"]);
+gulp.task("default", ["htmlElement-events.min.js", "demo"]);
 
 
 gulp.task("all", ["default"]);

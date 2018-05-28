@@ -1,0 +1,93 @@
+<html>
+
+<head>
+  <script type="text/javascript" src="https://unpkg.com/toaster-js/umd.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/toaster-js/default.css" />
+  <link rel="stylesheet" href="demo.css" />
+</head>
+
+<body>
+  <style>
+    #d2 {
+      border: solid 2px green
+    }
+    
+    #dd2 {
+      border: solid 1px blue
+    }
+    
+    #d3 {
+      border: solid 2px green;
+      min-height: 50px;
+    }
+  </style>
+  <script>
+    configureToasts({
+      topOrigin: 0,
+      deleteDelay: 300
+    });
+  </script>
+  <script src="node_modules/htmlelement-events/distrib/htmlElement-events.min.js"></script>
+  <h1>Demo for clickoutside</h1>
+
+  <input type="text" id="t1" value="t1" />
+  <input type="text" id="t3" />
+  <button type="button" id="btn">Clear</button>
+  <label id="t2">lab</label>
+
+  <div id="d2">
+    I'm d2
+    <div id="dd2">123</div>
+    <div>456</div>
+  </div>
+
+  <hr/>
+  <button id="b1">Click for register Click ouside ONCE</button>
+  <div id="d3">I'm d3
+    <div>789</div>
+    <div><span>658</span></div>
+  </div>
+
+  <button id="b2">Off</button>
+  <script>
+    function trace1() {
+      new Toast("t1.clickoutside() fired");
+    }
+
+    function trace2() {
+      new Toast("d2.clickoutside() fired");
+    }
+
+    function trace3(e) {
+      console.log("click outside d3");
+      new Toast("d3.clickoutside() fired");
+    }
+
+    function trace4(e) {
+      console.log("trace4");
+      new Toast("document.click() fired");
+    }
+
+    function off(e) {
+      document.querySelector("#t1").off("clickoutside");
+      document.querySelector("#d2").off("clickoutside");
+    }
+
+    document.querySelector("#t1").on("clickoutside");
+    document.querySelector("#d2").on("clickoutside", trace2);
+
+    document.querySelector("#b1").on("click", function(e) {
+      document.querySelector("#d3").on("clickoutside", trace3, {
+        once: true
+      });
+    });
+
+    document.querySelector("#b2").on("click", function(e) {
+      off(e);
+    });
+
+    document.on("click", trace4);
+  </script>
+</body>
+
+</html>

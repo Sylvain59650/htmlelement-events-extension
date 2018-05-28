@@ -5,7 +5,6 @@
   "main": "distrib/htmlElement-events.min.js",
   "dependencies": {},
   "devDependencies": {
-    "all-polyfills": "^0.6.0",
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.24.1",

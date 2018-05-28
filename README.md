@@ -102,10 +102,11 @@ example
 # Specials EventNames
   special event name can be used with <code>on</code> and <code>off</code> method
 
-    - longmousedown : call when the mouse stays pressed for a while
-    - longkeydown : call when one key stays pressed for a while
+    - longmousedown : event fired when the mouse stays pressed for a while
+    - longkeydown : event fired when one key stays pressed for a while
     - nocontextmenu : active/deactivate context menu
-    - clickoutside : click outside a element
+    - clickoutside : event fired when user clicks outside a element
+    - multiclick : event fired when user clicks 3 times quickly on a element
 
 # usage
 

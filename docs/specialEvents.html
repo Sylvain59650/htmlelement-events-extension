@@ -1,0 +1,64 @@
+<html>
+
+<body>
+  <style>
+    #d2 {
+      border: solid 2px green
+    }
+    
+    #dd2 {
+      border: solid 1px blue
+    }
+    
+    #d3 {
+      border: solid 2px green;
+      min-height: 50px;
+    }
+  </style>
+  <script src=".node_modules/htmlElement-events/distrib/htmlElement-events.min.js"></script>
+  <input type="text" id="t1" />
+  <input type="text" id="t3" />
+  <button type="button" id="btn">Clear</button>
+  <label id="t2">lab</label>
+
+  <div id="d2">
+    <div id="dd2">123</div>
+    <div>456</div>
+  </div>
+
+  <hr/>
+  <button id="b1">Click for register Click ouside ONCE</button>
+  <div id="d3">
+    <div>789</div>
+    <div><span>658</span></div>
+  </div>
+  <script>
+    function trace1() {
+      console.log("click outside t1");
+    }
+
+    function trace2() {
+      console.log("click outside d2");
+    }
+
+    function trace3(e) {
+      console.log("click outside d3");
+    }
+
+    function trace4(e) {
+      console.log("trace4");
+    }
+    // document.querySelector("#t1").on("clickoutside", trace1);
+    // document.querySelector("#d2").on("clickoutside", trace2);
+
+    document.querySelector("#b1").on("click", function(e) {
+      document.querySelector("#d3").on("clickoutside", trace3, {
+        once: true
+      })
+    });
+
+    document.on("click", trace4);
+  </script>
+</body>
+
+</html>

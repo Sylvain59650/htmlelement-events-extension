@@ -5,7 +5,8 @@ const watch = require("gulp-watch");
 
 const chemins = {
   sources: "./src/",
-  distrib: "./distrib/"
+  distrib: "./distrib/",
+  demo: "./docs/node_modules/htmlelement-events/distrib/"
 };
 
 
@@ -38,6 +39,22 @@ gulp.task("release", () => {
     }))
     .pipe(gulp.dest(chemins.distrib))
 });
+
+
+gulp.task("demo", () => {
+  return gulp.src([
+      "src/**.js"
+    ])
+    .pipe(concat("htmlElement-events.min.js"))
+    .pipe(babel({
+      presets: ["es2015"],
+      compact: false,
+      comments: false,
+      minified: false
+    }))
+    .pipe(gulp.dest(chemins.demo))
+});
+
 
 gulp.task("watch:htmlElement.min.js", function() {
   watch("./src/**.js", function() {

@@ -3,12 +3,12 @@
 <div style="display:inline">
 
 [![build](https://travis-ci.org/Sylvain59650/htmlelement-events-extension.png?branch=master)](https://travis-ci.org/Sylvain59650/htmlelement-events-extension)
-![version](https://img.shields.io/npm/v/htmlelement-events-extension.svg)
-![package](https://img.shields.io/github/package-json/v/Sylvain59650/htmlelement-events-extension.svg)
+[![version](https://img.shields.io/npm/v/htmlelement-events-extension.svg)](https://www.npmjs.com/package/htmlelement-events-extension)
+[![package](https://img.shields.io/github/package-json/v/Sylvain59650/htmlelement-events-extension.svg)](https://github.com/Sylvain59650/htmlelement-events-extension)
 ![dependencies](https://img.shields.io/david/Sylvain59650/htmlelement-events-extension.svg)
 ![minified](https://img.shields.io/bundlephobia/min/htmlelement-events-extension.svg)
 ![linter](https://img.shields.io/badge/eslint-ok-blue.svg)
-![tests](https://img.shields.io/badge/tests-passing-brightgreen.svg)
+[![tests](https://img.shields.io/badge/tests-passing-brightgreen.svg)](https://sylvain59650.github.io/htmlelement-events-extension/)
 ![license](https://img.shields.io/npm/l/htmlelement-events-extension.svg)
 [![hits](http://hits.dwyl.com/Sylvain59650/htmlelement-events-extension.svg)](http://hits.dwyl.com/Sylvain59650/htmlelement-events-extension)
 </div>

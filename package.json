@@ -35,12 +35,12 @@
     "one call","once",
     "on",
     "off",
-    "longpress","clickoutside"
+    "longpress","clickoutside","multiclick"
   ],
   "author": "Sylvain LONGEPEE",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Sylvain59650/htmlelement-events-extension/issues"
   },
-  "homepage": "https://github.com/Sylvain59650/htmlelement-events-extension#readme"
+  "homepage": "https://sylvain59650.github.io/htmlelement-events-extension/"
 }

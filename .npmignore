@@ -4,3 +4,6 @@ tests/
 src/
 .vscode
 gulpfile.js
+package-lock.json
+eslint*
+gitignore

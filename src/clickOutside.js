@@ -1,4 +1,5 @@
 /* eslint-disable */
+if (typeof htev === "undefined") { var htev = {} }
 
 function isSubElement(parent, item) {
   var it = item;
@@ -8,7 +9,7 @@ function isSubElement(parent, item) {
   return (it === parent);
 }
 
-function __clickOutside(e, elem, fn, option) {
+htev.__clickOutside = function(e, elem, fn, option) {
   if (elem !== e.target) {
     if (isSubElement(elem, e.target)) {
       e.stopImmediatePropagation();
@@ -18,9 +19,9 @@ function __clickOutside(e, elem, fn, option) {
   }
 }
 
-function registerClickOutside(elem, fn, option) {
+htev.registerClickOutside = function(elem, fn, option) {
   event.stopImmediatePropagation();
   document.on("click", function(e) {
-    __clickOutside(e, elem, fn, option);
+    htev.__clickOutside(e, elem, fn, option);
   });
 }

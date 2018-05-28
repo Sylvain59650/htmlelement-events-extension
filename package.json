@@ -3,10 +3,11 @@
   "version": "0.9.9",
   "description": "easy add/remove event on html elements, document & window",
   "main": "distrib/htmlElement-events.min.js",
-  "dependencies": {},
+  "dependencies": {
+   },
   "devDependencies": {
     "babel-core": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.24.1",
     "gulp": "^3.9.1",
     "gulp-babel": "^7.0.1",
@@ -24,11 +25,17 @@
     "url": "git+https://github.com/Sylvain59650/htmlelement-events-extension.git"
   },
   "keywords": [
-    "HTMLElement","window","document",
-    "events","event",
-    "addEventListener","removeEventListener","one call",
+    "HTMLElement",
+    "window",
+    "document",
+    "events",
+    "event",
+    "addEventListener",
+    "removeEventListener",
+    "one call","once",
     "on",
-    "off","longpress"
+    "off",
+    "longpress","clickoutside"
   ],
   "author": "Sylvain LONGEPEE",
   "license": "MIT",

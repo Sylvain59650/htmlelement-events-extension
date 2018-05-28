@@ -1,21 +1,25 @@
-/* global getEventListeners registerLongMousedown registerLongKeydown registerClickOutside disableContextMenu*/
-const specialEvents = ["longmousedown", "longkeydown", "nocontextmenu", "clickoutside"];
+/* global getEventListeners registerLongMousedown registerLongKeydown registerClickOutside disableContextMenu registerMulticlick htev*/
+if (typeof htev === "undefined") { var htev = {} }
 
-window.registerEvent = function(elem, evtName, fn, option) {
+const specialEvents = ["longmousedown", "longkeydown", "nocontextmenu", "clickoutside", "multiclick"];
+
+htev.registerEvent = function(elem, evtName, fn, option) {
   if (evtName === "longmousedown") {
-    registerLongMousedown(elem, fn);
+    htev.registerLongMousedown(elem, fn);
   } else if (evtName === "longkeydown") {
-    registerLongKeydown(elem, fn);
+    htev.registerLongKeydown(elem, fn);
   } else if (evtName === "nocontextmenu") {
     elem.oncontextmenu = disableContextMenu;
   } else if (evtName === "clickoutside") {
-    registerClickOutside(elem, fn, option || false);
+    htev.registerClickOutside(elem, fn, option || false);
+  } else if (evtName === "multiclick") {
+    htev.registerMulticlick(elem, fn, option || false);
   } else {
     elem.addEventListener(evtName, fn, option || false);
   }
 }
 
-window.unregisterEvent = function(elem, evtName, fn) {
+htev.unregisterEvent = function(elem, evtName, fn) {
   if (evtName === "nocontextmenu") {
     elem.oncontextmenu = null;
   } else if (evtName === "clickoutside" && document.removeEventListener) {
@@ -55,7 +59,7 @@ HTMLElement.prototype.on = function(evtName, fn, option) {
           cb = oneCall;
         }
       }
-      window.registerEvent(this, evt, cb, option || false);
+      htev.registerEvent(this, evt, cb, option || false);
 
     } else if (this.attachEvent) {
       this.attachEvent("on" + evt, fn);
@@ -68,7 +72,7 @@ HTMLElement.prototype.off = function(evtNames, fn) {
   for (let i = 0; i < evts.length; i++) {
     let evt = evts[i];
     if (this.removeEventListener) {
-      window.unregisterEvent(this, evt, fn);
+      htev.unregisterEvent(this, evt, fn);
     } else if (this.detachEvent) {
       this.detachEvent("on" + evt, fn);
     }

@@ -1,0 +1,110 @@
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="http://izitoast.marcelodolce.com/css/iziToast.min.css?v=130c">
+  <script src="http://izitoast.marcelodolce.com/js/iziToast.min.js?v=130c" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="demo.css" />
+</head>
+
+<body id="body">
+  <script src="node_modules/htmlelement-events/distrib/htmlElement-events.min.js"></script>
+
+  <div class="breadcrumb">
+    <a class="breadcrumb" href="index.html">Home</a> &gt;
+    <h1 class="breadcrumb">Demo for Normals Events</h1>
+  </div>
+
+  <form id="form">
+    <input type="text" id="t1" />
+    <input type="checkbox" id="t2" />
+    <input type="radio" id="t3" name="r" />
+    <input type="radio" id="t4" name="r" />
+
+    <select id="t5"><option>1</option><option>2</option></select>
+
+    <input type="submit" id="t6" value="Send" />
+
+    <hr/>
+
+    <input id="t7" type="text" />
+    <button id="t8" type="button">Toggle ContextMenu Enabled on t7</button>
+  </form>
+
+  <script>
+    function clickFired(e) {
+      iziToast.success({
+        title: "Event",
+        message: "click on " + e.target.id + " fired",
+        timeout: 3500
+      });
+    }
+
+    function keydownFired(e) {
+      iziToast.success({
+        title: "Event",
+        message: "keydown " + e.key + " fired",
+        timeout: 3500
+      });
+    }
+
+    function changeFired(e) {
+      iziToast.success({
+        title: "Event",
+        message: "change " + e.target.id + " fired",
+        timeout: 3500,
+        backgroundColor: "orange"
+      });
+    }
+
+    function blurFired(e) {
+      iziToast.success({
+        title: "Event",
+        message: "blur on " + e.target.id + " fired",
+        timeout: 3500,
+        backgroundColor: "blue"
+      });
+    }
+
+    function submitFired(e) {
+      e.preventDefault();
+      e.cancelBubble = true;
+      iziToast.error({
+        title: "Event",
+        message: "submit on " + e.target.id + " fired but cancel for demo",
+        timeout: 3500
+      });
+      e.stopImmediatePropagation();
+    }
+
+    function toggleContextMenu(e) {
+      var t7 = document.querySelector("#t7");
+      if (t7.oncontextmenu) {
+        t7.off("nocontextmenu");
+      } else {
+        t7.on("nocontextmenu");
+      }
+      iziToast.success({
+        title: "Event",
+        message: "nocontextmenu fired",
+        timeout: 3500,
+        backgroundColor: "red"
+      });
+    }
+
+    document.querySelectorAll("input").on("click", clickFired);
+    document.querySelectorAll("input").on("keydown", keydownFired);
+    document.querySelectorAll("input,select").on("change", changeFired);
+    document.querySelectorAll("input").on("blur", blurFired);
+
+    document.body.on("click", clickFired);
+
+    document.querySelector("form").on("submit", submitFired);
+
+    document.querySelector("#t7").off("click keydown change blur");
+    document.querySelector("#t7").on("nocontextmenu");
+
+    document.querySelector("#t8").on("click", toggleContextMenu);
+  </script>
+</body>
+
+</html>

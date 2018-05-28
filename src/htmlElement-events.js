@@ -11,7 +11,7 @@ htev.registerEvent = function(elem, evtName, fn, option) {
   } else if (evtName === "nocontextmenu") {
     elem.oncontextmenu = disableContextMenu;
   } else if (evtName === "clickoutside") {
-    htev.registerClickOutside(elem, fn, option || false);
+    htev.registerClickOutside(elem, fn, { target: elem });
   } else if (evtName === "multiclick") {
     htev.registerMulticlick(elem, fn, option || false);
   } else {
@@ -24,7 +24,7 @@ htev.unregisterEvent = function(elem, evtName, fn) {
     if (window.isDef(fn)) {
       elem.removeEventListener(evtName, fn, false);
     } else {
-      var events = window.getEventListeners(elem);
+      var events = elem.getEventListeners(evtName);
       if (window.isDef(events) && window.isDef(events[evtName])) {
         for (let j = 0; j < events[evtName].length; j++) {
           let e = events[evtName][j];
@@ -43,6 +43,9 @@ htev.unregisterEvent = function(elem, evtName, fn) {
 }
 
 HTMLElement.prototype.on = function(evtName, fn, option) {
+  if (!window.isDef(fn)) {
+    throw TypeError("fn is not defined");
+  }
   let evts = evtName.split(" ");
   let cb = fn;
   for (let i = 0; i < evts.length; i++) {

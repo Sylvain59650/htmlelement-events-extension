@@ -22,23 +22,38 @@
     }
   </style>
 
-  </script>
   <script src="node_modules/htmlelement-events/distrib/htmlElement-events.min.js"></script>
 
   <div class="breadcrumb">
     <a class="breadcrumb" href="index.html">Home</a> &gt;
-    <h1 class="breadcrumb">Demo for multiclick</h1>
+    <h1 class="breadcrumb">Demo for longkeydown</h1>
   </div>
-  <button id="b1">Click 3 times quickly</button>
-
+  <input type="text" id="t1" title="longkeydown active here" />
+  <input type="text" id="t2" title="longkeydown inactive here" />
   <script>
-    document.querySelector("#b1").on("multiclick", function(e) {
+    function longkeydownFired(e) {
       iziToast.success({
         title: "Event",
-        message: "Won",
+        message: "longkeydown " + e.key + " fired",
         timeout: 2000
       });
-    });
+    }
+
+    function keydownFired(e) {
+      iziToast.success({
+        title: "Event",
+        message: "keydown " + e.key + " fired",
+        timeout: 1000,
+        backgroundColor: "orange"
+      });
+    }
+
+    var t1 = document.querySelector("#t1");
+    t1.on("longkeydown", longkeydownFired);
+    t1.on("keydown", keydownFired);
+
+    var t2 = document.querySelector("#t2");
+    t2.on("longkeydown", longkeydownFired);
   </script>
 </body>
 

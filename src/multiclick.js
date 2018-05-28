@@ -2,6 +2,9 @@
 if (typeof htev === "undefined") { var htev = {} }
 
 htev.registerMulticlick = function(elem, fn, option) {
+  if (!window.isDef(fn)) {
+    throw TypeError("argument exception");
+  }
   let timer = 0;
   let counter = 0;
 
@@ -14,6 +17,6 @@ htev.registerMulticlick = function(elem, fn, option) {
       counter = 0;
     }
     counter++;
-    timer = window.setTimeout(reset, 3000);
+    timer = window.setTimeout(reset, 1000);
   });
 }

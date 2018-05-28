@@ -1,13 +1,17 @@
 <html>
 
 <head>
-  <script type="text/javascript" src="https://unpkg.com/toaster-js/umd.js"></script>
-  <link rel="stylesheet" href="https://unpkg.com/toaster-js/default.css" />
-  <link rel="stylesheet" href="demo.css" />
+  <link rel="stylesheet" type="text/css" href="http://izitoast.marcelodolce.com/css/iziToast.min.css?v=130c">
+  <script src="http://izitoast.marcelodolce.com/js/iziToast.min.js?v=130c" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="demo.css" />
 </head>
 
 <body>
   <style>
+    #t1 {
+      border: solid 2px gray
+    }
+    
     #d2 {
       border: solid 2px green
     }
@@ -17,63 +21,79 @@
     }
     
     #d3 {
-      border: solid 2px green;
+      border: solid 2px red;
       min-height: 50px;
     }
   </style>
-  <script>
-    configureToasts({
-      topOrigin: 0,
-      deleteDelay: 300
-    });
-  </script>
+
   <script src="node_modules/htmlelement-events/distrib/htmlElement-events.min.js"></script>
-  <h1>Demo for clickoutside</h1>
+
+  <div class="breadcrumb">
+    <a class="breadcrumb" href="index.html">Home</a> &gt;
+    <h1 class="breadcrumb">Demo for clickoutside</h1>
+  </div>
+
 
   <input type="text" id="t1" value="t1" />
-  <input type="text" id="t3" />
-  <button type="button" id="btn">Clear</button>
-  <label id="t2">lab</label>
-
+  <hr/>
   <div id="d2">
-    I'm d2
+    I'm d2, click on me then outside me and observe event fired
     <div id="dd2">123</div>
     <div>456</div>
   </div>
 
   <hr/>
-  <button id="b1">Click for register Click ouside ONCE</button>
+  <button id="b1">Click for register Click ouside on d3 ONCE</button>
   <div id="d3">I'm d3
     <div>789</div>
     <div><span>658</span></div>
   </div>
-
+  <hr/>
   <button id="b2">Off</button>
   <script>
     function trace1() {
-      new Toast("t1.clickoutside() fired");
+      iziToast.success({
+        title: "Event",
+        message: "t1.clickoutside() fired",
+        timeout: 3500,
+        backgrouncColor: "gray"
+      });
     }
 
     function trace2() {
-      new Toast("d2.clickoutside() fired");
+      iziToast.success({
+        title: "Event",
+        message: "d2.clickoutside() fired",
+        timeout: 3500,
+        backgroundColor: "blue"
+      });
     }
 
     function trace3(e) {
-      console.log("click outside d3");
-      new Toast("d3.clickoutside() fired");
+      iziToast.success({
+        title: "Event",
+        message: "d3.clickoutside() fired",
+        timeout: 3500,
+        backgroundColor: "red"
+      });
     }
 
     function trace4(e) {
-      console.log("trace4");
-      new Toast("document.click() fired");
+      iziToast.success({
+        title: "Event",
+        message: "document.click() fired",
+        timeout: 3500,
+        backgroundColor: "orange"
+      });
     }
 
     function off(e) {
       document.querySelector("#t1").off("clickoutside");
       document.querySelector("#d2").off("clickoutside");
+      document.querySelector("#d3").off("clickoutside");
     }
 
-    document.querySelector("#t1").on("clickoutside");
+    document.querySelector("#t1").on("clickoutside", trace1);
     document.querySelector("#d2").on("clickoutside", trace2);
 
     document.querySelector("#b1").on("click", function(e) {

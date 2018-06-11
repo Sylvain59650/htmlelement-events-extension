@@ -22,7 +22,7 @@ htev.__clickOutside = function(elem, fn, option, e) {
 }
 
 htev.registerClickOutside = function(elem, fn, option) {
-  if (event) { event.stopImmediatePropagation(); }
+  if (window.isDef(event)) { event.stopImmediatePropagation(); }
   option.target = elem;
   document.body.on("click", htev.__clickOutside.bind(event, elem, fn, option), option);
 }

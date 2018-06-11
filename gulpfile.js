@@ -21,9 +21,6 @@ gulp.task("htmlElement-events.min.js", () => {
       compact: false,
       minified: false
     }))
-    //.pipe(uglify())
-    //.on('error', function(err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
-    // .pipe(umd())
     .pipe(gulp.dest(chemins.distrib))
 });
 
@@ -57,7 +54,7 @@ gulp.task("demo", () => {
 });
 
 
-gulp.task("watch:htmlElement.min.js", function() {
+gulp.task("watch:htmlElement-events.min.js", function() {
   watch("./src/**.js", function() {
     gulp.run("htmlElement-events.min.js");
   });
@@ -65,9 +62,9 @@ gulp.task("watch:htmlElement.min.js", function() {
 
 
 
-gulp.task("default", ["htmlElement-events.min.js", "demo"]);
+gulp.task("default", ["htmlElement-events.min.js", "demo", "release"]);
 
 
 gulp.task("all", ["default"]);
 
-gulp.task("watch", ["watch:htmlElement.min.js"]);
+gulp.task("watch", ["watch:htmlElement-events.min.js"]);

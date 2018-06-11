@@ -1,17 +1,19 @@
 # htmlelement-events-extension
 
 <div style="display:inline">
-
-[![build](https://travis-ci.org/Sylvain59650/htmlelement-events-extension.png?branch=master)](https://travis-ci.org/Sylvain59650/htmlelement-events-extension)
-[![version](https://img.shields.io/npm/v/htmlelement-events-extension.svg)](https://www.npmjs.com/package/htmlelement-events-extension)
-[![package](https://img.shields.io/github/package-json/v/Sylvain59650/htmlelement-events-extension.svg)](https://github.com/Sylvain59650/htmlelement-events-extension)
-![dependencies](https://img.shields.io/david/Sylvain59650/htmlelement-events-extension.svg)
-![minified](https://img.shields.io/bundlephobia/min/htmlelement-events-extension.svg)
-![linter](https://img.shields.io/badge/eslint-ok-blue.svg)
-[![tests](https://img.shields.io/badge/tests-passing-brightgreen.svg)](https://sylvain59650.github.io/htmlelement-events-extension/)
-![license](https://img.shields.io/npm/l/htmlelement-events-extension.svg)
-[![hits](http://hits.dwyl.com/Sylvain59650/htmlelement-events-extension.svg)](http://hits.dwyl.com/Sylvain59650/htmlelement-events-extension)
-</div>
+    <a target="_blank" title="build" href="https://travis-ci.org/Sylvain59650/htmlelement-events-extension"><img src="https://travis-ci.org/Sylvain59650/htmlelement-events-extension.png?branch=master" /></a>
+    <a target="_blank" title="version" href="https://www.npmjs.com/package/htmlelement-events-extension"><img src="https://img.shields.io/npm/v/htmlelement-events-extension.svg" /></a>
+    <a target="_blank" title="package" href="https://github.com/Sylvain59650/htmlelement-events-extension"><img src="https://img.shields.io/github/package-json/v/Sylvain59650/htmlelement-events-extension.svg" /></a>
+    <a target="_blank" title="dependencies" href="https://david-dm.org/Sylvain59650/htmlelement-events-extension"><img src="https://img.shields.io/david/Sylvain59650/htmlelement-events-extension.svg" /></a>
+    <a target="_blank" title="dependencies graph" href="http://npm.anvaka.com/#/view/2d/htmlelement-events-extension"><img src="https://img.shields.io/badge/dependencies-graph-blue.svg" /></a>
+    <img src="https://img.shields.io/bundlephobia/min/htmlelement-events-extension.svg" />
+    <img src="https://img.shields.io/badge/eslint-ok-blue.svg" />
+    <a target="_blank" title="tests" href="https://sylvain59650.github.io/htmlelement-events-extension/"><img src="https://img.shields.io/badge/tests-passing-brightgreen.svg" /></a>
+    <a target="_blank" title="downloads" href="https://www.jsdelivr.com/package/npm/htmlelement-events-extension"><img src="https://data.jsdelivr.com/v1/package/npm/htmlelement-events-extension/badge" /></a>
+    <a target="_blank" title="cdn" href="https://cdn.jsdelivr.net/npm/htmlelement-events-extension/distrib/htmlelement-events-extension.min.js"><img src="https://img.shields.io/badge/cdn-jsdeliv-black.svg" /></a>
+    <img src="https://img.shields.io/npm/l/htmlelement-events-extension.svg" />
+    <img src="https://hits.dwyl.com/Sylvain59650/htmlelement-events-extension.svg" />
+  </div>
 
     easy add/remove event on html elements
 

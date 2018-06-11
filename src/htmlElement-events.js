@@ -43,7 +43,7 @@ htev.unregisterEvent = function(elem, evtName, fn) {
 }
 
 HTMLElement.prototype.on = function(evtName, fn, option) {
-  if (!window.isDef(fn)) {
+  if (!window.isDef(fn) && evtName !== "nocontextmenu") {
     throw TypeError("fn is not defined");
   }
   let evts = evtName.split(" ");

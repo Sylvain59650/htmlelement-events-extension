@@ -1,0 +1,48 @@
+<html>
+
+<body>
+  <script src="../distrib/htmlElement-events.min.js"></script>
+  <div class="special">I'm special</div>
+
+  <button id="b1">Click</button>
+
+  <button id="b2">add element</button>
+
+  <script>
+    function trace1() {
+      console.log("click outside t1");
+    }
+
+    function trace2() {
+      console.log("click outside d2");
+    }
+
+    function trace3(e) {
+      console.log("click outside d3");
+    }
+
+    function trace4(e) {
+      console.log("trace4");
+    }
+    // document.querySelector("#t1").on("clickoutside", trace1);
+    // document.querySelector("#d2").on("clickoutside", trace2);
+
+    var counter = 0;
+
+    document.querySelector("#b2").on("click", function() {
+      var elm = document.createElement("input");
+      elm.id = ++counter;
+      elm.classList.add("special");
+      elm.innerHTML = counter;
+      document.body.insertAdjacentElement("beforeend", elm);
+    });
+
+    document.trigger("click keypress", ".special", function(e) {
+      console.log(e.type + " on " + e.target.id);
+    }, {
+      once: true
+    });
+  </script>
+</body>
+
+</html>

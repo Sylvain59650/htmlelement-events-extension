@@ -6,7 +6,7 @@ const watch = require("gulp-watch");
 const chemins = {
   sources: "./src/",
   distrib: "./distrib/",
-  demo: "./docs/node_modules/htmlelement-events/distrib/"
+  demo: "./docs/demo/modules/htmlelement-events/distrib/"
 };
 
 
@@ -35,7 +35,8 @@ gulp.task("release", () => {
     .pipe(babel({
       presets: ["es2015"],
       compact: true,
-      minified: true
+      minified: true,
+      plugins: ["minify-mangle-names"]
     }))
     .pipe(gulp.dest(chemins.distrib))
 });

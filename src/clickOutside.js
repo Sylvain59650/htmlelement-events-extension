@@ -9,20 +9,23 @@ function isSubElement(parent, item) {
   return (it === parent);
 }
 
-htev.__clickOutside = function(elem, fn, option, e) {
-  if (elem !== e.target) {
-    if (isSubElement(elem, e.target)) {
-      e.stopImmediatePropagation();
+htev.__clickOutside = function(event, elem, fn, option) {
+  if (elem !== event.target) {
+    if (isSubElement(elem, event.target)) {
+      event.stopImmediatePropagation();
       return;
     }
     if (window.isDef(fn)) {
-      fn(e);
+      fn(event);
     }
   }
 }
 
 htev.registerClickOutside = function(elem, fn, option) {
-  if (window.isDef(event)) { event.stopImmediatePropagation(); }
+  event = event || Event;
+  // if (window.isDef(event)) { event.stopImmediatePropagation(); } else {
+  //   event = {};
+  // }
   option.target = elem;
   document.body.on("click", htev.__clickOutside.bind(event, elem, fn, option), option);
 }

@@ -84,3 +84,7 @@ HTMLElement.prototype.off = function(evtNames, fn) {
     }
   }
 }
+
+HTMLElement.prototype.fireEvent = function(evtName, options) {
+  this.dispatchEvent(new Event(evtName, options));
+}

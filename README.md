@@ -46,6 +46,7 @@ or
 ## on HTMLElement, window & document
     - on ~ addEventListener
     - off ~ removeEventListener
+    - fireEvent ~trigger ~dispatchEvent
     - NoContextMenu() disabled contextMenu on HTMLElement
 
 # HTMLElement.on

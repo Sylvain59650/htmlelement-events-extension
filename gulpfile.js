@@ -31,9 +31,10 @@ gulp.task("release", () => {
     .pipe(concat("htmlElement-events.min.js"))
     .pipe(babel({
       presets: ["es2015"],
+      //   comments: false,
       compact: true,
       minified: true,
-      plugins: ["minify-mangle-names"]
+      // plugins: ["minify-mangle-names"]
     }))
     .pipe(gulp.dest(chemins.distrib))
 });

@@ -1,6 +1,6 @@
 {
   "name": "htmlelement-events-extension",
-  "version": "0.9.9",
+  "version": "0.9.10",
   "description": "easy add/remove event on html elements, document & window",
   "main": "distrib/htmlElement-events.min.js",
   "dependencies": {},

@@ -20,9 +20,3 @@ window.isDef = function(obj) {
   CustomEvent.prototype = window.Event.prototype;
   window.CustomEvent = CustomEvent;
 })();
-
-
-document.fireEvent = function(eventName, detail) {
-  var myEvent = new CustomEvent(eventName, { detail: detail });
-  document.dispatchEvent(myEvent);
-}

@@ -1,0 +1,85 @@
+<html>
+
+<head>
+  <title>htmlelement-events-extension</title>
+  <link href="https://sylvain59650.github.io/demonstrator/css/theme1.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="container">
+    <div>
+      <a href="https://www.npmjs.com/package/htmlelement-events-extension" title="NPM">
+        <img src="https://sylvain59650.github.io/demonstrator/img/npm.png" height="32"></a>
+      <a href="https://github.com/Sylvain59650/htmlelement-events-extension" title="GitHub"><img src="https://github.com/favicon.ico" height="32" /></a>
+    </div>
+
+
+    <div class="breadcrumb">
+      <a href="index.html">API</a>
+      <h1>NodeList</h1>
+    </div>
+
+
+    <article id="on">
+      <h2>NodeList.on</h2>
+      <div class="signature">
+        <p>NodeList.on(<i>evtNames</i>,<i>fn</i>)</p>
+      </div>
+      <div class="arg">
+        <p><i>evtNames</i>One or more space-separated event types</p>
+        <p><i>fn</i>A function to execute when the event is triggered</p>
+      </div>
+      <div class="description">
+        <p>Attach an event handler function for one or more events to each element in NodeList</p>
+      </div>
+      <p class="example"></p>
+      <xmp>
+        <button class="cl">Ok</button>
+        <button class="cl">Retry</button>
+        <button class="cl">Cancel</button>
+
+        <script>
+          var btns = document.querySelectorAll(".cl");
+
+          btns.on("click", function() {
+            alert("clicked");
+          })
+        </script>
+      </xmp>
+    </article>
+
+    <article id="off">
+      <h2>NodeList.off</h2>
+      <div class="signature">
+        <p>window.off(<i>evtNames</i>,<i>fn</i>)</p>
+      </div>
+      <div class="arg">
+        <p><i>evtNames</i>One or more space-separated event types</p>
+        <p><i>fn</i>A handler function previously attached for the event(s)</p>
+      </div>
+      <div class="description">
+        <p>Remove an event handler.</p>
+      </div>
+      <p class="example"></p>
+
+      <xmp>
+        <button class="cl">Ok</button>
+        <button class="cl">Retry</button>
+        <button class="cl">Cancel</button>
+
+        <script>
+          var btns = document.querySelectorAll(".cl");
+          var fn = function() {
+            alert("clicked, work only once");
+            btns.off("click", fn);
+          };
+
+          btns.on("click", fn);
+        </script>
+      </xmp>
+    </article>
+
+  </div>
+</body>
+
+</html>

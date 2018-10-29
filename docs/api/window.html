@@ -1,0 +1,72 @@
+<html>
+
+<head>
+  <title>htmlelement-events-extension</title>
+  <link href="https://sylvain59650.github.io/demonstrator/css/theme1.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="container">
+    <div>
+      <a href="https://www.npmjs.com/package/htmlelement-events-extension" title="NPM">
+        <img src="https://sylvain59650.github.io/demonstrator/img/npm.png" height="32"></a>
+      <a href="https://github.com/Sylvain59650/htmlelement-events-extension" title="GitHub"><img src="https://github.com/favicon.ico" height="32" /></a>
+    </div>
+
+
+    <div class="breadcrumb">
+      <a href="index.html">API</a>
+      <h1>window</h1>
+    </div>
+
+
+    <article id="on">
+      <h2>window.on</h2>
+      <div class="signature">
+        <p>window.on(<i>evtNames</i>,<i>fn</i>)</p>
+      </div>
+      <div class="arg">
+        <p><i>evtNames</i>One or more space-separated event types</p>
+        <p><i>fn</i>A function to execute when the event is triggered</p>
+      </div>
+      <div class="description">
+        <p>Attach an event handler function for one or more events to the element</p>
+      </div>
+      <p class="example"></p>
+      <xmp>
+        <script>
+          window.on("click", function() {
+            alert("clicked");
+          })
+        </script>
+      </xmp>
+    </article>
+
+    <article id="off">
+      <h2>window.off</h2>
+      <div class="signature">
+        <p>window.off(<i>evtNames</i>,<i>fn</i>)</p>
+      </div>
+      <div class="arg">
+        <p><i>evtNames</i>One or more space-separated event types</p>
+        <p><i>fn</i>A handler function previously attached for the event(s)</p>
+      </div>
+      <div class="description">
+        <p>Remove an event handler.</p>
+      </div>
+      <p class="example"></p>
+
+      <xmp>
+        <script>
+          var fn = function() {
+            alert("clicked");
+          }
+          window.off("click", fn);
+        </script>
+      </xmp>
+    </article>
+
+  </div>
+</body>
+
+</html>

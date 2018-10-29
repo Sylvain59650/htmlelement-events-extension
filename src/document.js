@@ -18,3 +18,12 @@ document.trigger = function(eventNames, targets, fn, options) {
     document.on(evt, fnn);
   }
 }
+
+document.trigger2 = function(eventName, targets, detail) {
+  var myEvent = new CustomEvent(eventName, { detail: detail });
+  var nodes = document.querySelectorAll(targets);
+  for (let i = 0; i < nodes.length; i++) {
+    let n = nodes[i];
+    n.dispatchEvent(myEvent);
+  }
+}

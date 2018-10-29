@@ -36,9 +36,9 @@ or
 
 ### for browser
 
- 
+ ```html
     <script src="node_modules/htmlelement-events-extension/distrib/htmlelement-events-extension.min.js"></script>
-
+```
 
 
 # Availables Operations
@@ -46,7 +46,7 @@ or
 ## on HTMLElement, window & document
     - on ~ addEventListener
     - off ~ removeEventListener
-    - fireEvent ~trigger ~dispatchEvent
+    - trigger ~dispatchEvent
     - NoContextMenu() disabled contextMenu on HTMLElement
 
 # HTMLElement.on
@@ -89,18 +89,19 @@ example
 
 
 # document
-    - fireEvent  : fire custom event with details,  this event can also be listened with method document.on
+    - trigger  : fire custom event with details,  this event can also be listened with method document.on
 
 example
-
+```html
         function traceDetail(ev) {
             console.log(ev.detail);
         }
         document.on("custom", traceDetail);
 
-        document.fireEvent("custom",{a:1,b:2});
+        document.trigger("custom",{a:1,b:2});
 
         => {a:1,b:2}
+```
 
 # Specials EventNames
   special event name can be used with <code>on</code> and <code>off</code> method

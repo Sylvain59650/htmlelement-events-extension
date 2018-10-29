@@ -1,0 +1,52 @@
+<html>
+
+<head>
+  <title>htmlelement-events-extension</title>
+  <link href="https://sylvain59650.github.io/demonstrator/css/theme1.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="container">
+    <div>
+      <a href="https://www.npmjs.com/package/htmlelement-events-extension" title="NPM">
+        <img src="https://sylvain59650.github.io/demonstrator/img/npm.png" height="32"></a>
+      <a href="https://github.com/Sylvain59650/htmlelement-events-extension" title="GitHub"><img src="https://github.com/favicon.ico" height="32" /></a>
+    </div>
+
+    <div class="breadcrumb">
+      <a href="index.html">API</a>
+      <h1>document</h1>
+    </div>
+
+    <nav>
+      <li><a href="#trigger">trigger</a></li>
+    </nav>
+
+    <article id="trigger">
+      <h2>document.trigger</h2>
+      <div class="signature">
+        <p>document.trigger(<i>evtName</i>, <i>options</i>)</p>
+      </div>
+      <div class="arg">
+        <p><i>evtName</i>A string containing a JavaScript event type, such as click or submit.</p>
+        <p><i>options</i>Additional parameters to pass along to the event handler { once: true, passive: true, capture: true } once => true, the event can only be called once, polyfill for IE
+        </p>
+      </div>
+      <div class="description">
+        <p>Execute all handlers and behaviors attached to the matched elements for the given event type.</p>
+      </div>
+      <p class="example"></p>
+      <xmp>
+        <script>
+          var fn = function() {
+            alert("clicked");
+          }
+
+          document.trigger("click");
+        </script>
+      </xmp>
+    </article>
+  </div>
+</body>
+
+</html>

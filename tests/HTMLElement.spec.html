@@ -7,12 +7,13 @@
     <option value="2">2</option>
     <option value="3">3</option>
 </select>
+
   <script>
     document.querySelector("#t1").on("change", function(e) {
-      alert("change");
+      alert("change on t1");
     })
 
-    document.querySelector("#t1").fireEvent("change");
+    document.querySelector("#t1").trigger("change");
   </script>
 </body>
 

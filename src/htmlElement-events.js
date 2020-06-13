@@ -1,7 +1,7 @@
 /* global getEventListeners registerLongMousedown registerLongKeydown registerClickOutside disableContextMenu registerMulticlick htev*/
 if (typeof htev === "undefined") { var htev = {} }
 
-const specialEvents = ["longmousedown", "longkeydown", "nocontextmenu", "clickoutside", "multiclick"];
+const specialEvents = ["longmousedown", "longkeydown", "nocontextmenu", "clickoutside", "multiclick","onbeforeleave"];
 
 htev.registerEvent = function(elem, evtName, fn, option) {
   if (evtName === "longmousedown") {
@@ -14,7 +14,11 @@ htev.registerEvent = function(elem, evtName, fn, option) {
     htev.registerClickOutside(elem, fn, { target: elem });
   } else if (evtName === "multiclick") {
     htev.registerMulticlick(elem, fn, option || false);
-  } else {
+  } 
+  //else if (evtName === "onbeforeleave") {
+   //   htev.registerOnBeforeLeave(fn);
+  //}
+   else {
     elem.addEventListener(evtName, fn, option || false);
   }
 }

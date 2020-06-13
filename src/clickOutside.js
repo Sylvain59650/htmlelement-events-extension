@@ -3,7 +3,7 @@ if (typeof htev === "undefined") { var htev = {} }
 
 function isSubElement(parent, item) {
   var it = item;
-  while (it.parentNode !== null && it !== parent) {
+  while (it != null && it.parentNode !== null && it !== parent) {
     it = it.parentNode;
   }
   return (it === parent);

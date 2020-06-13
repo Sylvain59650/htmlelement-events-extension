@@ -56,16 +56,14 @@ gulp.task("demo", () => {
 
 
 gulp.task("watch:htmlElement-events.min.js", function() {
-  watch("./src/**.js", function() {
-    gulp.run("htmlElement-events.min.js");
-  });
+  watch("./src/**.js", gulp.series("htmlElement-events.min.js"));
 });
 
 
 
-gulp.task("default", ["htmlElement-events.min.js", "demo", "release"]);
+gulp.task("default", gulp.series("htmlElement-events.min.js", "demo", "release"));
 
 
-gulp.task("all", ["default"]);
+gulp.task("all", gulp.series("default"));
 
-gulp.task("watch", ["watch:htmlElement-events.min.js"]);
+gulp.task("watch", gulp.series("watch:htmlElement-events.min.js"));
